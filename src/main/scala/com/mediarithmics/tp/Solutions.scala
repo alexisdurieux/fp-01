@@ -76,7 +76,7 @@ object Solutions {
   def foldTree[A, B](tree: BinaryTree[A], z: B)(f: (B, A, B) => B): B =
     tree match {
       case Branch(l, v, r) =>
-        f(foldTree(l, z)(f), v, foldTree(r, z))
+        f(foldTree(l, z)(f), v, foldTree(r, z)(f))
       case Leaf =>
         z
     }
